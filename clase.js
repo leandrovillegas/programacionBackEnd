@@ -10,7 +10,7 @@ class Usuario {
 
     getFullName() {
 
-        return this.nombre + " " + this.apellido;
+        return `${this.nombre} ${this.apellido}` ;
     }
     addMascotas(mascota) {
         this.mascotas.push(mascota);
@@ -58,11 +58,9 @@ const libros = [
 
 ];
 
-//--------------Creacion de array de mascotas------------//
-const mascotas = ["perro", "gato", "conejo", "serpiente"];
 
 //--------------Etapa prueba------------//
-let usuario = new Usuario("Leandro", "Villegas", libros, mascotas);
+const usuario = new Usuario("Leandro", "Villegas", libros, ["perro", "gato", "conejo", "serpiente"]);
 
 console.log(usuario.libros[0].nombre);
 
@@ -80,9 +78,5 @@ usuario.addBook("Prueba", "Soy Yo");
 
 console.log(usuario.libros[2].autor);
 
-let bla = [];
-bla.push(usuario.getBookNames());
-bla.forEach(element => {
-    console.log(element)
-});
+console.log(usuario.getBookNames());
 //--------------Fin Etapa prueba------------//
