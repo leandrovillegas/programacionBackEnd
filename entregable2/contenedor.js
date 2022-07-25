@@ -86,7 +86,7 @@ class Contenedor {
 
         try {
             let data = await fs.promises.readFile(this.ruta, 'utf-8');
-            if (!data) {
+            if (data) {
 
                 await fs.promises.writeFile(this.ruta, [], 'utf-8');
                 console.log("Archivo vaciado");
