@@ -7,46 +7,19 @@ const app = express();
 
 
 
-app.get('/productos', (req, res) => {
-    getAll();
-    async function getAll() {
-        try {
-            let data = await fs.promises.readFile('./productos.txt', 'utf-8');
-            let dataParse = JSON.parse(data);
-            if (dataParse.length) {
+app.get('/productos', async (req, res) => {
+  const arrayProductos= await contenedor.getAll();
 
-                res.send(dataParse);
-            } else {
-                console.log("No hay productos");
-            }
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
+  res.send(arrayProductos);
 
 })
 
-app.get('/productoRandom', (req, res) => {
+app.get('/productoRandom', async (req, res) => {
 
-    getRandomObject();
-    async function getRandomObject() {
-        try {
-            let data = await fs.promises.readFile('./productos.txt', 'utf-8');
-            let dataParse = JSON.parse(data);
-
-            if (dataParse.length) {
-                const random = Math.floor(Math.random() * dataParse.length);
-                res.send(dataParse[random]);
-            } else {
-                console.log("No hay productos");
-            }
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
+    const arrayProductos= await contenedor.getAll();
+    const productoRandom = arrayProductos[Math.floor(Math.random() * arrayProductos.length)];
+    
+    res.send(productoRandom);
 })
 
 const PORT = 4000;
