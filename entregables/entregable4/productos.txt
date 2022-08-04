@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Escuadra",
+    "price": 200.17,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/9789502809489_1.jpg?id_com=1113",
+    "id": 1
+  },
+  {
+    "title": "Globo",
+    "price": 300.17,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/9789502809489_1.jpg?id_com=1113",
+    "id": 2
+  },
+  {
+    "title": "Calculadora",
+    "price": 100.17,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/9789502809489_1.jpg?id_com=1113",
+    "id": 3
+  },
+  {
+    "title": "leandro",
+    "price": "412",
+    "thumbnail": "273e43a71854d8359186ecc348370f8d.jpg",
+    "id": 4
+  }
+]
