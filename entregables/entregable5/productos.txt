@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Compas",
+    "price": 200.17,
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678066-compas-256.png",
+    "id": 1
+  },
+  {
+    "title": "Globo",
+    "price": 300.17,
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-256.png",
+    "id": 2
+  },
+  {
+    "title": "Calculadora",
+    "price": 100.17,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 3
+  }
+]
