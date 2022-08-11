@@ -16,5 +16,17 @@
     "price": 100.17,
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
     "id": 3
+  },
+  {
+    "title": "gorra",
+    "price": "1223",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_632442-MLA44283714763_122020-V.jpg",
+    "id": 4
+  },
+  {
+    "title": "Pistola de agua",
+    "price": "13123",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/991/977/products/sin_titulo_-_2020-10-20t160540-865-removebg-preview1-78f02577ae05098ebd16032207885883-480-0.png",
+    "id": 5
   }
 ]

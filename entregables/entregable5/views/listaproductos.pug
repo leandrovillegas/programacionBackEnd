@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="style.css")
+        title Vista de productos
+    body 
+        if list 
+            table.table#pugprod
+                thead.thead-dark
+                    tr
+                        th(scope="col")= '#'
+                        th(scope="col") Nombre
+                        th(scope="col") Precio
+                        th(scope="col") Imagen
+                each producto in list
+                        tbody
+                            tr
+                                th(scope="row")= producto.id
+                                td(scope="row")= producto.title
+                                td(scope="row")= producto.price
+                                td(scope="row")
+                                    img(src= producto.thumbnail)
+
+        else    
+            h2= "no hay productos"
+
+        a(href="/")
+            button Volver a carga de productos
