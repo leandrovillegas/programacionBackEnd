@@ -1,5 +1,4 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
 const Contenedor = require('./contenedor');
 const contenedor = new Contenedor('./productos.txt');
 
@@ -10,28 +9,23 @@ const port = 4000 || process.env.PORT;
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
-app.engine(
-    'hbs',
-    handlebars.engine({
-        extname: '.hbs',
-        defaultLayout: 'listaproductos.hbs',
-        layoutsDir: __dirname + '/views',
-        partialsDir: __dirname + '/views/partials'
-    })
-)
 
-app.set('view engine', 'hbs')
+app.set('view engine', 'ejs')
 app.set('views', './views')
 
 app.use(express.static('public'))
 
 
-
-
-
 app.get('/productos', async (req, res) => {
-    res.render('listaproductos', { listExist: true, list: await contenedor.getAll() })
+    let productos= await contenedor.getAll();
+    let mensaje= 'Lista Productos con EJS by Leandro Villegas'
+    res.render('layouts/index.ejs', {
+        productos,
+        mensaje
+    })
 })
+
+
 
 app.post('/productos', async (req, res) => {
     try {
