@@ -1,0 +1,14 @@
+[
+  {
+    "email": "SERVER",
+    "fyh": "18/08/2022",
+    "mensaje": "Hola",
+    "id": 1
+  },
+  {
+    "email": "SERVER",
+    "fyh": "18/08/2022",
+    "mensaje": "Bienvenido al chat",
+    "id": 2
+  }
+]
