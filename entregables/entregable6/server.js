@@ -13,9 +13,19 @@ const io = new IOServer(httpServer);
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.engine(
+    'hbs',
+    handlebars.engine({
+        extname: '.hbs',
+        defaultLayout: 'listaproductos.hbs',
+        layoutsDir: __dirname + '/views'
+    })
+)
+app.set('view engine', 'hbs')
+app.set('views', './views')
 
-app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: __dirname })
+app.get('/', async (req, res) => {
+    res.render('listaproductos', { mensajes: await msjTxt.getAll(), productos: await prodTxt.getAll() })
 })
 
 
@@ -39,7 +49,7 @@ io.on('connection', async(socket) => {
 
 
     socket.on('mensaje-nuevo', (mensaje) => {
-        msjTxt.save(mensaje)
+        msjTxt.saveMsj(mensaje)
 
         io.sockets.emit('mensaje-servidor', mensajes)
     })
@@ -55,14 +65,3 @@ httpServer.listen(port, error => {
 
 
 
-// app.engine(
-//     'hbs',
-//     handlebars.engine({
-//         extname: '.hbs',
-//         defaultLayout: 'listaproductos.hbs',
-//         layoutsDir: __dirname + '/views',
-//         partialsDir: __dirname + '/views/partials'
-//     })
-// )
-// app.set('view engine', 'hbs')
-// app.set('views', './views')

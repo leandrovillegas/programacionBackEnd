@@ -25,6 +25,27 @@ class Contenedor {
 
 
     }
+
+    async saveMsj(objeto) {
+        try {
+
+            let data = await fs.promises.readFile(this.ruta, 'utf-8');
+            let dataParse = JSON.parse(data);
+            if (dataParse.length) {
+                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataParse, { ...objeto,fyh: new Date().toLocaleString(), id: dataParse[dataParse.length - 1].id + 1 }], null, 2));
+            } else {
+                await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...objeto, id: 1 }], null, 2));
+            }
+
+
+        } catch (error) {
+
+            console.log(error);
+        }
+
+
+    }
+
     async retornarId(id) {
 
         try {
@@ -124,6 +145,29 @@ class Contenedor {
             console.log("Error lectura");
         }
 
+    }
+
+    formatDate(){
+        let dia= new Date().getDate
+        let mes= new Date().getMonth
+        let anio= new Date().getFullYear
+        let hora= new Date().getHours
+        let minutos= new Date().getMinutes
+        let segundos= new Date().getSeconds
+        const ni=new Date()
+        const idea= ni.toLocaleString();
+
+        const horaParseada= ([
+            dia,
+            mes,
+            new Date().getFullYear,
+        ].join('/')+' '+[
+            new Date().getHours,
+            new Date().getMinutes,
+            new Date().getSeconds,
+        ].join(':'))
+        console.log(idea)
+        return horaParseada;
     }
 }
 
