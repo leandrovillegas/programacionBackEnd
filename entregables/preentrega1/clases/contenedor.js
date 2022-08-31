@@ -1,4 +1,4 @@
-const e = require('express');
+//const e = require('express');
 const fs = require('fs');
 class Contenedor {
 
@@ -14,14 +14,15 @@ class Contenedor {
             let dataParse = JSON.parse(data);
             if (dataParse.length) {
                 await fs.promises.writeFile(this.ruta, JSON.stringify([...dataParse, { id: dataParse[dataParse.length - 1].id + 1, timestamp: Date.now(), ...objeto }], null, 2));
+                return { status: 'Ok', code: 200, descripcion: "Producto agregado con exito" }
             } else {
                 await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...objeto, id: 1 }], null, 2));
+                return { status: 'Ok', code: 200, descripcion: "Producto agregado con exito" }
             }
 
 
         } catch (error) {
-
-            console.log(error);
+            return { status: 'error', code: -4, descripcion: error }
         }
 
 
@@ -34,14 +35,15 @@ class Contenedor {
             let dataParse = JSON.parse(data);
             if (dataParse.length) {
                 await fs.promises.writeFile(this.ruta, JSON.stringify([...dataParse, { id: dataParse[dataParse.length - 1].id + 1, timestamp: Date.now(), ...objeto }], null, 2));
+                return { status: 'Ok', code: 200, descripcion: "Carrito agregado con exito" }
             } else {
                 await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...objeto, id: 1 }], null, 2));
+                return { status: 'Ok', code: 200, descripcion: "Carrito agregado con exito" }
             }
 
 
         } catch (error) {
-
-            console.log(error);
+            return { status: 'error', code: -4, descripcion: error }
         }
 
 
@@ -61,7 +63,7 @@ class Contenedor {
 
         } catch (error) {
 
-            console.log(error);
+            return { status: 'error', code: -4, descripcion: error }
         }
 
 
@@ -77,10 +79,11 @@ class Contenedor {
                 return libro;
 
             } else {
-                console.log("No hay producto");
+                return { status: 'error', code: -1, descripcion: "Ese carrito no existe" }
             }
         } catch (error) {
-            console.log("Error lectura");
+            return { status: 'error', code: -4, descripcion: error }
+
         }
 
     }
@@ -95,15 +98,15 @@ class Contenedor {
             if (objetoIndex !== -1) {
                 dataParse[objetoIndex] = objeto;
                 await fs.promises.writeFile(this.ruta, JSON.stringify(dataParse, null, 2));
-                return { Ok: 'Ese producto fue actualizado' };
+                return { status: 'Ok', code: 200, descripcion: "Ese producto fue actualizado" }
             } else {
-                return { error: 'Ese producto no existe' };
+                return { status: 'error', code: -1, descripcion: "Ese proucto no existe" }
             }
 
 
         } catch (error) {
+            return { status: 'error', code: -4, descripcion: error }
 
-            console.log(error);
         }
     }
     async addProdInCarritoById(objeto) {
@@ -137,16 +140,16 @@ class Contenedor {
                 }
 
 
+                return { status: 'Ok', code: 200, descripcion: "Ese carrito fue actualizado" }
 
-                return { Ok: 'Ese carrito fue actualizado' };
             } else {
-                return { error: 'Ese carrito no existe' };
+                return { status: 'error', code: -1, descripcion: "Ese carrito no existe" }
+
             }
 
 
         } catch (error) {
-
-            console.log(error);
+            return { status: 'error', code: -4, descripcion: error }
         }
     }
 
@@ -158,11 +161,12 @@ class Contenedor {
 
                 return dataParse;
             } else {
-                console.log("No hay productos");
+                return { status: 'error', code: -3, descripcion: "No hay productos" }
+
             }
 
         } catch (error) {
-            console.log(error)
+            return { status: 'error', code: -4, descripcion: error }
         }
 
     }
@@ -176,13 +180,14 @@ class Contenedor {
             if (producto) {
                 let dataParseFiltrado = dataParse.filter(producto => producto.id !== id);
                 await fs.promises.writeFile(this.ruta, JSON.stringify(dataParseFiltrado, null, 2), 'utf-8');
-                console.log("Producto eliminado");
+                return { status: 'Ok', code: 200, descripcion: "Eliminado con exito" }
 
             } else {
-                console.log("No existe ese producto que desea eliminar");
+                return { status: 'error', code: -1, descripcion: "El objeto que desea eliminar no se encuentra en la lista" }
+
             }
         } catch (error) {
-            console.log("Error lectura");
+            return { status: 'error', code: -4, descripcion: error }
         }
 
     }
@@ -193,22 +198,22 @@ class Contenedor {
             let dataParse = JSON.parse(data);
             let dataIntact = dataParse.filter(carrito => carrito.id !== id);
             let carrito = dataParse.find(carrito => carrito.id === id);
-            
+
             if (carrito.productos) {
                 let carritoFiltrado = carrito.productos.filter(producto => producto.id !== id_prod);
-                
+
                 let obj = { id: id, timestamp: carrito.timestamp, productos: carritoFiltrado };
-                
-                let arrayOrdenado = [ ...dataIntact, obj ]
+
+                let arrayOrdenado = [...dataIntact, obj]
                 arrayOrdenado.sort((a, b) => a.id - b.id)
                 await fs.promises.writeFile(this.ruta, JSON.stringify(arrayOrdenado, null, 2));
-                console.log("Producto eliminado");
+                return { status: 'Ok', code: 200, descripcion: "Eliminado con exito" }
             } else {
-                console.log("No existe ese producto que desea eliminar");
+                return { status: 'error', code: -1, descripcion: "El producto que desea eliminar no se encuentra en la lista" }
             }
 
         } catch (error) {
-            console.log("Error lectura");
+            return { status: 'error', code: -4, descripcion: error }
         }
 
     }
@@ -220,13 +225,13 @@ class Contenedor {
             if (data) {
 
                 await fs.promises.writeFile(this.ruta, [], 'utf-8');
-                console.log("Archivo vaciado");
+                return { status: 'Ok', code: 200, descripcion: "Vaciado" }
 
             } else {
-                console.log("El archivo esta vacio");
+                return { status: 'error', code: -1, descripcion: "El archivo esta vacio" }
             }
         } catch (error) {
-            console.log("Error lectura");
+            return { status: 'error', code: -4, descripcion: error }
         }
 
     }

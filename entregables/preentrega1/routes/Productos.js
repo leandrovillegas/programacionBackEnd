@@ -12,7 +12,7 @@ routerProductos.get('/', async (req, res) => {
 
         res.json(arrayProductos);
     } catch (error) {
-        console.log(error)
+        res.send({ status: "error", code: -1, descripcion: error })
     }
 
 })
@@ -21,16 +21,15 @@ routerProductos.get('/:id', async (req, res) => {
 
     try {
         const arrayProductos = await productos.getAll();
-        const notFound = { error: 'Ese producto no existe' };
         const { id } = req.params;
         if (arrayProductos[id - 1]) {
             res.json(arrayProductos[id - 1]);
             res.send(index)
         } else {
-            res.json(notFound);
+            res.send({ status: "error", code: -3, descripcion: "Producto inexistente" })
         }
     } catch (error) {
-        console.log(error)
+        res.send({ status: "error", code: -1, descripcion: error })
     }
 
 
@@ -48,13 +47,13 @@ routerProductos.post('/', async (req, res) => {
             res.redirect('/') // No se me ocurre como poder hacer para que no refresque pero que el socket lo tome...
         } else {
             if (!admin) {
-                return { error: -1, descripcion: "Ruta /api/productos/ metodo POST no autorizado" }
+                res.send({ status: "error", code: -1, descripcion: "Ruta /api/productos/ metodo POST no autorizado" })
             }
             console.log("Hubo un error")
             // res.redirect('/');
         }
     } catch (error) {
-        console.log(error)
+        res.send({ status: "error", code: -1, descripcion: error })
     }
 
 
@@ -68,34 +67,34 @@ routerProductos.put('/:id', async (req, res) => {
         if (admin) {
             console.log(objetoProd.nombre)
             if (objetoProd.nombre || objetoProd.descripcion || objetoProd.precio || objetoProd.foto || objetoProd.codigo || objetoProd.stock) {
-                const respuesta = await productos.updateProdById({id: parseInt(id), ...objetoProd })
-                res.json({ respuesta })
+                const respuesta = await productos.updateProdById({ id: parseInt(id), ...objetoProd })
+                res.send( respuesta )
             }
-        } else { return { error: -1, descripcion: "Ruta /api/productos/id metodo PUT no autorizado" } }
+        } else { res.send({status: "error", code: -1, descripcion: "Ruta /api/productos/id metodo PUT no autorizado" }) }
 
 
     } catch (error) {
-        console.log(error)
+        res.send({ status: "error", code: -1, descripcion: error })
     }
 
 
 })
 
-routerProductos.delete('/:id', (req, res) => {
+routerProductos.delete('/:id', async (req, res) => {
 
     const { id } = req.params;
 
     try {
         if (admin) {
-            productos.deleteById(parseInt(id));
-            return { ok: 200, descripcion: "Producto eliminado con exito" }
+            const respuesta = await productos.deleteById(parseInt(id));
+            res.send(respuesta)
         } else {
-            return { error: -1, descripcion: "Ruta /api/productos/" + id + " metodo DELETE no autorizado" }
+            res.send({ status: "error", code: -1, descripcion: "Ruta /api/productos/" + id + " metodo DELETE no autorizado" })
         }
 
 
     } catch (error) {
-        console.log(error)
+        res.send({ status: "error", code: -1, descripcion: error })
     }
 
 })
