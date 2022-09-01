@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat Web Socket Entregable</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+
+</head>
+
+<body>
+
+    <h2>Carga de producto</h2>
+    <div class="table">
+        <form onsubmit="return addProduct(this)" class="mt-5">
+            <input type="text" id="title" placeholder="Ej: Regla">
+            <input type="number" id="price" placeholder="Ej: 120">
+            <input type="url" id="thumbnail" placeholder="url de foto">
+            <button type="submit">Clic para agregar producto</button>
+        </form>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+            </thead>
+            <tbody id="listProd">
+               
+            </tbody>
+        </table>
+    </div>
+
+
+    <h2>CHAT ZONE</h2>
+    <form onsubmit="return addMsj(this)">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" id="email" placeholder="ejemplo@ejemplo" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Mensaje</label>
+          <div class="col-sm-10">
+            <input type="text" id="msj" placeholder="Ej: Hola buenas!" required>
+          </div>
+        </div>
+        <button type="submit">Clic para agregar mensaje</button>
+      </form>
+      <div class="row">
+        <div class="col">
+            <ul class="list-group list-group-flush" id="listMsj">
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
