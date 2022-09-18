@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "timestamp": "",
+    "productos": [
+      {
+        "nombre": "Compas",
+        "precio": 200.17,
+        "timestamp": "",
+        "descripcion": "",
+        "codigo": "EAN1234",
+        "stock": "1",
+        "foto": "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678066-compas-256.png",
+        "id": 1
+      },
+      {
+        "nombre": "Globo",
+        "precio": 300.17,
+        "timestamp": "",
+        "descripcion": "GLOBO TERRAQUEO",
+        "codigo": "EAN1236",
+        "stock": "2",
+        "foto": "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-256.png",
+        "id": 2
+      },
+      {
+        "nombre": "Calculadora",
+        "precio": 100.17,
+        "timestamp": "",
+        "descripcion": "Calculadora Cientifica",
+        "codigo": "EAN1238",
+        "stock": "6",
+        "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+        "id": 3
+      },
+      {
+        "nombre": "Anabella",
+        "descripcion": "esto es una prueba",
+        "precio": "13123",
+        "foto": "https://medicinaysaludpublica.blob.core.windows.net.optimalcdn.com/images/2021/02/24/prueba-molecular-coronavirus-redes.jpg",
+        "ean": "eas1111",
+        "stock": "12312",
+        "timestamp": "8/23/2022, 7:49:52 PM",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "timestamp": 1661376633695,
+    "productos": [
+      {
+        "id": 1,
+        "timestamp": "",
+        "nombre": "Compas",
+        "precio": 200.17,
+        "descripcion": "",
+        "codigo": "EAN1234",
+        "stock": "1",
+        "foto": "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678066-compas-256.png"
+      },
+      {
+        "id": 2,
+        "timestamp": "",
+        "nombre": "Globo",
+        "precio": 300.17,
+        "descripcion": "GLOBO TERRAQUEO",
+        "codigo": "EAN1236",
+        "stock": "2",
+        "foto": "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-256.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestamp": 1661802979317,
+    "productos": [
+      {
+        "nombre": "prueba",
+        "precio": 5555.17,
+        "descripcion": "",
+        "codigo": "EAN125434",
+        "stock": "51",
+        "foto": "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678066-compas-256.png"
+      }
+    ]
+  }
+]

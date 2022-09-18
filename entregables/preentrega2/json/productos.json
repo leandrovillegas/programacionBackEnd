@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "nombre": "prueba",
+    "precio": 5555.17,
+    "descripcion": "",
+    "codigo": "EAN125434",
+    "stock": "51",
+    "foto": "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678066-compas-256.png"
+  },
+  {
+    "id": 2,
+    "timestamp": "",
+    "nombre": "Globo",
+    "precio": 300.17,
+    "descripcion": "GLOBO TERRAQUEO",
+    "codigo": "EAN1236",
+    "stock": "2",
+    "foto": "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-256.png"
+  },
+  {
+    "id": 3,
+    "timestamp": "",
+    "nombre": "Calculadora",
+    "precio": 100.17,
+    "descripcion": "Calculadora Cientifica",
+    "codigo": "EAN1238",
+    "stock": "6",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png"
+  }
+]

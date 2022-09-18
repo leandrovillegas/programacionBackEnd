@@ -1,0 +1,26 @@
+[
+  {
+    "email": "SERVER",
+    "fyh": "18/08/2022",
+    "mensaje": "Hola",
+    "id": 1
+  },
+  {
+    "email": "SERVER",
+    "fyh": "18/08/2022",
+    "mensaje": "Bienvenido al chat",
+    "id": 2
+  },
+  {
+    "email": "leandroavillegas@gmail.com",
+    "mensaje": "dasd",
+    "fyh": "8/25/2022, 3:19:48 PM",
+    "id": 3
+  },
+  {
+    "email": "leandroandresvillegas@gmail.com",
+    "mensaje": "prueba",
+    "fyh": "8/25/2022, 3:51:57 PM",
+    "id": 4
+  }
+]
