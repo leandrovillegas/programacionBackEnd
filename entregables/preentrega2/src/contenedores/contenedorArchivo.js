@@ -59,7 +59,7 @@ class ContenedorArchivo {
 
                 return dataParse;
             } else {
-                return { status: 'error', code: -3, descripcion: "No hay productos" }
+                return { status: 'error', code: -3, descripcion: "Esta vacio" }
 
             }
 

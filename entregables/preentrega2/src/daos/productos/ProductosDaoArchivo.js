@@ -1,8 +1,8 @@
-import ContenedorArchivo from "../../contenedores/contenedorArchivo.js"
-
+const ContenedorArchivo = require("../../contenedores/contenedorArchivo.js")
+const fs = require('fs');
 class ProductosDaoArchivo extends ContenedorArchivo {
     constructor() {
-        super("./json/productos.json")
+        super('../json/productos.json')
     }
 
     async saveProd(objeto) {
@@ -48,4 +48,4 @@ class ProductosDaoArchivo extends ContenedorArchivo {
     }
 }
 
-module.exports= ProductosDaoArchivo;
+module.exports = ProductosDaoArchivo;

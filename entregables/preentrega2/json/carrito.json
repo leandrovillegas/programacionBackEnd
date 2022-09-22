@@ -70,19 +70,5 @@
         "foto": "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/globe-256.png"
       }
     ]
-  },
-  {
-    "id": 3,
-    "timestamp": 1661802979317,
-    "productos": [
-      {
-        "nombre": "prueba",
-        "precio": 5555.17,
-        "descripcion": "",
-        "codigo": "EAN125434",
-        "stock": "51",
-        "foto": "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678066-compas-256.png"
-      }
-    ]
   }
 ]

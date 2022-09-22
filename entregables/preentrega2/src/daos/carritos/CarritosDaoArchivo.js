@@ -1,8 +1,8 @@
-import ContenedorArchivo from "../../contenedores/contenedorArchivo.js"
-
+const ContenedorArchivo = require("../../contenedores/contenedorArchivo.js")
+const fs = require('fs')
 class CarritosDaoArchivo extends ContenedorArchivo {
     constructor() {
-        super("./json/carrito.json")
+        super('../json/carrito.json')
     }
 
     async saveCarrito(objeto) {
@@ -35,7 +35,7 @@ class CarritosDaoArchivo extends ContenedorArchivo {
                 let dataIntact = dataParse.filter(carrito => carrito.id !== objeto.id);//Obtenemos y guardamos el/los carrito/s que no coincide con el id enviado
                 let carritoIntact = dataParse.find(carrito => carrito.id === objeto.id);//Obtenemos y guardamos el carrito que  coincide con el id enviado
                 if (carritoIntact.productos === undefined) {//Nos fijamos si estaba vacio
-                    let addObjet = { id: 1, timestamp: Date.now(), ...objeto.productos[0] }
+                    let addObjet = { id: 1, timestamp: Date.now(), ...objeto }
                     const arrayOrdenado = [
                         ...dataIntact,
                         { ...carritoIntact, productos: [addObjet] }
@@ -45,13 +45,14 @@ class CarritosDaoArchivo extends ContenedorArchivo {
                     await fs.promises.writeFile(this.ruta, JSON.stringify(arrayOrdenado, null, 2));
 
                 } else {
+                    let addObjet = { id: carritoIntact.productos[carritoIntact.productos.length - 1].id + 1, timestamp: Date.now(), ...objeto }
 
-                    let addObjet = { id: carritoIntact.productos[carritoIntact.productos.length - 1].id + 1, timestamp: Date.now(), ...objeto.productos[0] }
                     carritoIntact.productos.push(addObjet)
                     let arrayOrdenado = [
                         ...dataIntact,
                         carritoIntact
                     ]
+                    
                     arrayOrdenado.sort((a, b) => a.id - b.id)
                     await fs.promises.writeFile(this.ruta, JSON.stringify(arrayOrdenado, null, 2));
                 }
@@ -97,4 +98,4 @@ class CarritosDaoArchivo extends ContenedorArchivo {
 
     }
 }
-module.exports= CarritosDaoArchivo;
+module.exports = CarritosDaoArchivo;

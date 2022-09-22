@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAll, getPorId, saveProducto, updateProdById, deleteById } = require('../src/controllers/productosController.js')
+const { getAll, getById, saveProducto, updateProdById, deleteById } = require('../src/controllers/productosController.js')
 const routerProductos = express.Router();
 
 
@@ -7,7 +7,7 @@ const routerProductos = express.Router();
 
 routerProductos.get('/', getAll)
 
-routerProductos.get('/:id', getPorId)
+routerProductos.get('/:id', getById)
 
 routerProductos.post('/', saveProducto)
 

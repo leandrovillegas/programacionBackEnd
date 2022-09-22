@@ -1,22 +1,20 @@
 const express = require('express');
-const Contenedor = require('../src/contenedores/contenedorArchivo');
-const carrito = new Contenedor('./json/carrito.json');
-const carritosRoute = express.Router();
-const admin = true;
+const { getAll, getCarritoId, saveCarrito, addProdInCarritoById, deleteProdInCarritoById, delCarrito } = require('../src/controllers/carritosController');
+const routerCarritos = express.Router();
 
 //Declaraciones de las rutas de carrito
 
 
-carritosRoute.get('/',    )
+routerCarritos.get('/', getAll)
 
-carritosRoute.get('/:id/productos',  )
+routerCarritos.get('/:id', getCarritoId)
 
-carritosRoute.post('/', )
+routerCarritos.post('/', saveCarrito)
 
-carritosRoute.post('/:id/productos', )
+routerCarritos.post('/:id/productos', addProdInCarritoById)
 
-carritosRoute.delete('/:id/productos/:id_prod', )
+routerCarritos.delete('/:id/productos/:id_prod', deleteProdInCarritoById)
 
-carritosRoute.delete('/:id', )
+routerCarritos.delete('/:id', delCarrito)
 
-module.exports = carritosRoute;
+module.exports = routerCarritos;
