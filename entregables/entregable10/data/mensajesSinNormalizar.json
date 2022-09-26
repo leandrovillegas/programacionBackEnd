@@ -1,0 +1,38 @@
+[
+  {
+    "author": {
+      "email": "SERVER@SERVER",
+      "nombre": "EL",
+      "apellido": "Server",
+      "edad": "999",
+      "alias": "ServerX",
+      "avatar": "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/man5-512.png"
+    },
+    "mensaje": "hola",
+    "fyh": "9/26/2022, 11:35:11 AM"
+  },
+  {
+    "author": {
+      "email": "SERVER@SERVER",
+      "nombre": "EL",
+      "apellido": "Server",
+      "edad": "999",
+      "alias": "ServerX",
+      "avatar": "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/man5-512.png"
+    },
+    "mensaje": "Bienvenido al chat",
+    "fyh": "9/26/2022, 11:35:11 AM"
+  },
+  {
+    "author": {
+      "email": "leandroandresvillegas@gmail.com",
+      "nombre": "Leandro",
+      "apellido": "Villegas",
+      "edad": "22",
+      "alias": "El pocho",
+      "avatar": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/52a796f6f36242e3adfeae76012d94f8_9366/gorra-trefoil-baseball-unisex.jpg"
+    },
+    "mensaje": "dasd",
+    "fyh": "9/26/2022, 11:44:24 AM"
+  }
+]
