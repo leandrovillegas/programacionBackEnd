@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Sing-up</title>
+
+
+</head>
+
+<body>
+
+  <h2>Sing-up</h2>
+
+
+  <form action="/signup" method="get" class="form-group">
+
+    <div class="form-group row">
+      <label for="username" class="col-sm-2 col-form-label">Nombre de Usuario</label>
+      <div class="col-sm-10" >
+        <input class="form-control" type="text" name="username"  required>
+      </div>
+      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="password" name="password"  required>
+      </div>
+    </div>
+    <button type="submit" id="formbutton" class="btn btn-primary">Crear Usuario</button>
+  </form>
+    <a href="/login.html"><button class="btn btn-primary">Volver al login</button></a>
+
+
+</body>
+
+</html>
