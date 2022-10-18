@@ -38,8 +38,7 @@ app.get("/info", (req, res) => {
 
 app.get("/api/randoms", (req, res) => {
 	let { cant } = req.query;
-    const hola = "Hola"
-	const random = fork("./utils/random", [cant],[hola]);
+	const random = fork("./utils/random", [cant]);
 	random.send("start");
 	random.on("message", obj => {
 		res.send(obj);
